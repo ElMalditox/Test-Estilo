@@ -2,7 +2,7 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const router = express.Router();
 
-require('dotenv').config();
+
 /* 
 
 router.post('/send-email-g',(req,res)=>{
