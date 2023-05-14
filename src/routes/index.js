@@ -92,11 +92,9 @@ router.post('/send-email-g',(req,res)=>{
     .catch((error)=> console.log("error"));
    
 }); */
-const Envio = swal.fire({
-    type: 'success',
-    title: 'Envio exitoso',
-    text: 'su correo a sido enviado con exito'
-});
+const Envio = ` <center>
+                <h1 style="color: #2e2d2d; font-family: 'Roboto';">El correo a sido enviado con exito, gracias por realizar el test</h1>
+                </center>`;
 
 
 
@@ -159,7 +157,19 @@ router.post('/send-email-a',(req,res)=>{
     
     
         enviarMail()    
-        .then((result)=>res.status(200).send(Envio))
+        .then((result) => {
+            swal.fire({
+                title: 'Exito!',
+                text: 'El correo ha sido enviado exitosamente',
+                icon: 'success',
+                confirmButtonText: 'Genial!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "https://karinnabello.com/";
+                }
+            });
+            return res.status(200).send(result);
+        })
         .catch((error)=> console.log("error"));
     });
 
