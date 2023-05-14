@@ -92,9 +92,11 @@ router.post('/send-email-g',(req,res)=>{
     .catch((error)=> console.log("error"));
    
 }); */
-const Envio = ` <center>
-                <h1 style="color: #2e2d2d; font-family: 'Roboto';">El correo a sido enviado con exito, gracias por realizar el test</h1>
-                </center>`;
+const Envio = swal.fire({
+    type: 'success',
+    title: 'Envio exitoso',
+    text: 'su correo a sido enviado con exito'
+});
 
 
 
