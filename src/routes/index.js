@@ -2,7 +2,6 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const router = express.Router();
 
-
 /* 
 
 router.post('/send-email-g',(req,res)=>{
@@ -92,9 +91,8 @@ router.post('/send-email-g',(req,res)=>{
     .catch((error)=> console.log("error"));
    
 }); */
-const Envio = ` <center>
-                <h1 style="color: #2e2d2d; font-family: 'Roboto';">El correo a sido enviado con exito, gracias por realizar el test</h1>
-                </center>`;
+
+const Envio = 'https://karinnabello.com/';
 
 
 
@@ -156,22 +154,13 @@ router.post('/send-email-a',(req,res)=>{
     }
     
     
-        enviarMail()    
-        .then((result) => {
-            swal.fire({
-                title: 'Exito!',
-                text: 'El correo ha sido enviado exitosamente',
-                icon: 'success',
-                confirmButtonText: 'Genial!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = "https://karinnabello.com/";
-                }
-            });
-            return res.status(200).send(result);
-        })
-        .catch((error)=> console.log("error"));
-    });
+    enviarMail()    
+    .then((result) => {
+        // Aquí puedes procesar el resultado si lo necesitas
+        res.redirect('https://karinnabello.com/');
+    })
+    .catch((error)=> console.log("error"));
+});
 
 
 router.post('/send-email-b',(req,res)=>{
@@ -239,7 +228,6 @@ router.post('/send-email-b',(req,res)=>{
         
         
             enviarMail()    
-            .then((result)=>res.status(200).send(Envio))
             .catch((error)=> console.log("error"));
 });
 
@@ -310,7 +298,6 @@ router.post('/send-email-c',(req,res)=>{
     
     
         enviarMail()    
-        .then((result)=>res.status(200).send(Envio))
         .catch((error)=> console.log("error"));
 });
 
@@ -378,7 +365,6 @@ router.post('/send-email-d',(req,res)=>{
     
     
         enviarMail()    
-        .then((result)=>res.status(200).send(Envio))
         .catch((error)=> console.log("error"));
 });
 
@@ -449,7 +435,6 @@ router.post('/send-email-e',(req,res)=>{
     
     
         enviarMail()    
-        .then((result)=>res.status(200).send(Envio))
         .catch((error)=> console.log("error"));
 });
 
@@ -518,11 +503,11 @@ Saludos Karinna
     
     
         enviarMail()    
-        .then((result)=>res.status(200).send(Envio))
         .catch((error)=> console.log("error"));
 });
 
 
 
 module.exports = router;
+
 
