@@ -324,7 +324,16 @@
 }
 @media screen and (max-width: 450px) {
     .margen{
-        margin-left: 60%;
+        margin-left: 0%;
+    }
+    .contenedor-fuera{
+        width: 100%;
+        padding-left: 0;
+        background-color: rgba(238, 234, 226, 1);
+        background-position:  30%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url('../Imagenes/portada/portada.JPG');
     }
     .recuadro{
     
@@ -384,7 +393,9 @@
     }
     .margen-boton{
         margin-top: 0%;
-        margin-left: 60%;
+        margin-left: -60%;
+        padding-right: 59%;
+        padding-left: 59%;
     }
     .boton{
         width: 98%;
